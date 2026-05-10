@@ -1,16 +1,54 @@
-# Egypt-Economic-Growth-Analysis
-Statistical analysis of the relationship between government spending and GDP growth in Egypt (1980-2022) using R
-# Analysis of Egypt's Economic Growth Drivers (1980-2022)
+# 🇪🇬 تحليل محركات النمو الاقتصادي في مصر (1980-2022)
+### دراسة تحليلية باستخدام لغة R وبيانات البنك الدولي
 
-## Overview
-This project investigates how government consumption expenditure impacts economic growth in Egypt. Using World Bank data and R, I built a Linear Regression model to quantify this relationship.
+<div dir="rtl">
 
-## Key Findings
-* **Correlation:** 0.39 (Positive relationship).
-* **Impact:** Every 1% increase in government spending correlates with a 0.33% increase in GDP growth.
-* **Statistical Significance:** Highly significant (P-value < 0.01).
+## 📌 نبذة عن المشروع
+هذا المشروع يقدم تحليلاً اقتصادياً قياسياً (Econometrics) يهدف إلى فهم وقياس العلاقة بين **الإنفاق الحكومي الاستهلاكي** و**معدلات نمو الناتج المحلي الإجمالي** في جمهورية مصر العربية. تم الاعتماد على بيانات رسمية من البنك الدولي للفترة ما بين 1980 و2022.
 
-## Tools Used
-* **Language:** R
-* **Libraries:** tidyverse, WDI, ggplot2
-* **DataSource:** World Bank Open Data
+---
+
+## 📊 النتائج الرئيسية (Key Findings)
+بعد معالجة البيانات وتحليلها، توصلت الدراسة للنتائج التالية:
+*   **الارتباط (Correlation):** توجد علاقة طردية قوية بنسبة **0.39** بين الإنفاق والنمو.
+*   **معامل التأثير (Beta):** كل زيادة بنسبة **1%** في الإنفاق الحكومي تقابلها زيادة قدرها **0.33%** في معدل النمو.
+*   **المعنوية الإحصائية:** النموذج معنوي جداً بنسبة ثقة تفوق **99%** ($P-value = 0.008$).
+
+---
+
+## 📈 التحليل البصري(Visualizations)
+
+### 1. العلاقة بين الإنفاق والنمو (Scatter Plot)
+توضح هذه الرسمة توزيع البيانات وخط الاتجاه العام الذي يثبت العلاقة الطردية.
+![Scatter Plot](scatter_plot.png) 
+*(ملاحظة: تأكد من رفع صورة باسم scatter_plot.png في المستودع)*
+
+### 2. النموذج التنبؤي مقابل الواقع (Actual vs Predicted)
+هنا نقارن بين معدلات النمو الحقيقية في مصر وبين توقعات النموذج الرياضي الذي قمنا ببنائه.
+![Actual vs Predicted](actual_vs_predicted.png)
+*(ملاحظة: تأكد من رفع صورة باسم actual_vs_predicted.png في المستودع)*
+
+---
+
+## 🧪 الإطار الرياضي (Mathematical Framework)
+استناداً إلى دراستي في **الإحصاء الرياضي (مرجع هوج)**، تم بناء التحليل وفقاً للآتي:
+
+### 1. نموذج الانحدار الخطي (Linear Regression)
+تم تمثيل العلاقة بالمعادلة:
+$$Growth_i = \beta_0 + \beta_1 (Gov\_Exp_i) + \epsilon_i$$
+حيث تم تقدير المعلمات باستخدام طريقة المربعات الصغرى (OLS).
+
+### 2. اختبار السببية لجرانجر (Granger Causality)
+لقياس التتابع الزمني ومعرفة "من يسبب من"، استخدمنا الاختبار التالي:
+$$Y_t = \alpha_0 + \sum_{i=1}^k \alpha_i Y_{t-i} + \sum_{j=1}^k \beta_j X_{t-j} + u_t$$
+*   **النتيجة:** قيمة $P-value = 0.103$ مما يشير إلى أن العلاقة قد تكون لحظية أو تأثرية متبادلة وليست سببية تتابعية بسيطة.
+
+---
+
+## لأدوات والتقنيات (Tech Stack)
+*   **لغة البرمجة:** R
+*   **المكتبات الأساسية:** 
+    *   `WDI`: لجلب البيانات مباشرة من البنك الدولي.
+    *   `tidyverse`: لتنظيف ومعالجة البيانات.
+    *   `ggplot2`: لإنتاج الرسوم البيانية الاحترافية.
+    *   `lmtest`: لإجراء اختبارات السببية.
