@@ -25,7 +25,7 @@
 
 ### 2. النموذج التنبؤي مقابل الواقع (Actual vs Predicted)
 هنا نقارن بين معدلات النمو الحقيقية في مصر وبين توقعات النموذج الرياضي الذي قمنا ببنائه.
-![Actual vs Predicted](actual_vs_predicted.pg
+![Actual vs Predicted](actual_vs_predicted.png)
 
 ---
 
